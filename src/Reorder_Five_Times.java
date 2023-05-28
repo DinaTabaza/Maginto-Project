@@ -15,24 +15,21 @@ public class Reorder_Five_Times extends Parameters {
 		driver.manage().window().maximize();
 	}
 
-	
-	//Reorder 5 Times 
+	// Reorder 5 Times
 	@Test(description = "Test number 8", priority = 8)
 	public void Reorder_five_Times() throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(25));
 		// SignIn
 
-		// Click_SignIn_InNavBar
-		WebElement SignIn = driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/ul/li[2]/a"));
-		SignIn.click();
+		driver.get(LoginPage);
 
 		// Email
 		WebElement Email = driver.findElement(By.xpath("//*[@id=\"email\"]"));
-		Email.sendKeys(email);
+		Email.sendKeys(TheEmailToLogin);
 
 		// Password
 		WebElement Password = driver.findElement(By.xpath("//*[@id=\"pass\"]"));
-		Password.sendKeys(password);
+		Password.sendKeys(Mutualpassword);
 
 		Thread.sleep(1000);
 		// SignInButton
@@ -91,7 +88,7 @@ public class Reorder_Five_Times extends Parameters {
 
 	}
 
-	//Check The price of the Last 5 Invoices Added Are The Same
+	// Check The price of the Last 5 Invoices Added Are The Same
 	@Test(description = "Test number 9", priority = 9)
 	public void Check_five_OrderPrice() throws InterruptedException {
 		WebElement table = driver.findElement(By.className("main"));
@@ -111,16 +108,17 @@ public class Reorder_Five_Times extends Parameters {
 			// Perform actions with the cell content
 			String Actualprice = cell.getText().trim();
 			System.out.println(Actualprice);
-			
-			WebElement TheFistPriceInTheTable = driver.findElement(By.xpath("//*[@id=\"my-orders-table\"]/tbody/tr[1]/td[4]/span"));
+
+			WebElement TheFistPriceInTheTable = driver
+					.findElement(By.xpath("//*[@id=\"my-orders-table\"]/tbody/tr[1]/td[4]/span"));
 			String ExpectedPrice = TheFistPriceInTheTable.getText().trim();
 			System.out.println(ExpectedPrice);
-			
-			   // Assert that the price is equal to the expected price
-            if (Actualprice.equals(ExpectedPrice)) {
-                System.out.println("Price assertion passed!");
-                break;
-            }			
+
+			// Assert that the price is equal to the expected price
+			if (Actualprice.equals(ExpectedPrice)) {
+				System.out.println("Price assertion passed!");
+				break;
+			}
 		}
 
 	}
