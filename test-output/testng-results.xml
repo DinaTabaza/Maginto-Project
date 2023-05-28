@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-05-21T11:29:13 EET" name="Default suite" finished-at="2023-05-21T11:30:49 EET" duration-ms="96241">
+  <suite started-at="2023-05-28T19:37:39 EET" name="Default suite" finished-at="2023-05-28T19:37:53 EET" duration-ms="14221">
     <groups>
     </groups>
-    <test started-at="2023-05-21T11:29:13 EET" name="Default test" finished-at="2023-05-21T11:30:49 EET" duration-ms="96241">
-      <class name="Reorder_Five_Times">
-        <test-method is-config="true" signature="preTest()[pri:0, instance:Reorder_Five_Times@7fae4d4a]" started-at="2023-05-21T11:29:13 EET" name="preTest" finished-at="2023-05-21T11:29:16 EET" duration-ms="2786" status="PASS">
+    <test started-at="2023-05-28T19:37:39 EET" name="Default test" finished-at="2023-05-28T19:37:53 EET" duration-ms="14221">
+      <class name="SignUp">
+        <test-method is-config="true" signature="preTest()[pri:0, instance:SignUp@547c04c4]" started-at="2023-05-28T19:37:39 EET" name="preTest" finished-at="2023-05-28T19:37:42 EET" duration-ms="3047" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preTest -->
-        <test-method signature="Reorder_five_Times()[pri:8, instance:Reorder_Five_Times@7fae4d4a]" started-at="2023-05-21T11:29:16 EET" name="Reorder_five_Times" description="Test number 8" finished-at="2023-05-21T11:30:49 EET" duration-ms="92917" status="PASS">
+        <test-method signature="Success_Signup_Message()[pri:1, instance:SignUp@547c04c4]" started-at="2023-05-28T19:37:42 EET" name="Success_Signup_Message" description="Test number 1" finished-at="2023-05-28T19:37:53 EET" duration-ms="11097" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Reorder_five_Times -->
-        <test-method signature="Check_The_Last_five_OrderPrice()[pri:9, instance:Reorder_Five_Times@7fae4d4a]" started-at="2023-05-21T11:30:49 EET" name="Check_The_Last_five_OrderPrice" description="Test number 9" finished-at="2023-05-21T11:30:49 EET" duration-ms="448" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Check_The_Last_five_OrderPrice -->
-      </class> <!-- Reorder_Five_Times -->
+        </test-method> <!-- Success_Signup_Message -->
+      </class> <!-- SignUp -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

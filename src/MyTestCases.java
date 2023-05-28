@@ -18,23 +18,22 @@ public class MyTestCases extends Parameters {
 		driver.manage().window().maximize();
 
 	}
+	
 
 	// SignIn
 	@Test(description = "Test number 2", priority = 2)
 	public void Login() throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
-		// Click_SignIn_InNavBar
-		WebElement SignIn = driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/ul/li[2]/a"));
-		SignIn.click();
+		driver.get(LoginPage);
 
 		// Email
 		WebElement Email = driver.findElement(By.xpath("//*[@id=\"email\"]"));
-		Email.sendKeys(email);
+		Email.sendKeys(TheEmailToLogin);
 
 		// Password
 		WebElement Password = driver.findElement(By.xpath("//*[@id=\"pass\"]"));
-		Password.sendKeys(password);
+		Password.sendKeys(Mutualpassword);
 
 		Thread.sleep(1000);
 		// SignInButton

@@ -10,13 +10,20 @@ public class Parameters {
 	Random rand = new Random();
 
 	String HomePage = "https://magento.softwaretestingboard.com/";
+	String SignupPage = "https://magento.softwaretestingboard.com/customer/account/create/";
+	String LoginPage = "https://magento.softwaretestingboard.com/customer/account/login/";
 	String CheckoutPage = "https://magento.softwaretestingboard.com/checkout/#shipping";
+	String SignOut = "https://magento.softwaretestingboard.com/customer/account/logout/";
 
-	// Login info
-	String FirstName = "Dina";
-	String LastName = "Tabaza";
-	String email = "Dina_Muwaffaq.tabaza@yahoo.com";
-	String password = "0795646019Dd";
+	// SignUp
+	String[] firstNameList = { "Dina", "Hamza", "Rania", "Diala", "yazeed" };
+	String[] lastNameList = { "Ali", "yazan", "yazeed", "Ahmad", "Faisal" };
+	int RandomIndex = rand.nextInt(0, 5);
+	int RandomIndexForEmail =rand.nextInt(0, 200);
+	String EmailUser = "user";
+	String EmailComplete = "@yahoo.com";
+	String Mutualpassword = "0795646019Dd";
+	String TheEmailToLogin ;
 
 	// Checkout info
 	String CompanyName = "Amazon";

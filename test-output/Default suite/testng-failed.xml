@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Reorder_Five_Times">
+      <class name="SignUp">
         <methods>
-          <include name="Reorder_five_Times"/>
-          <include name="Check_The_Last_five_OrderPrice"/>
+          <include name="Success_Signup_Message"/>
           <include name="preTest"/>
         </methods>
-      </class> <!-- Reorder_Five_Times -->
+      </class> <!-- SignUp -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
