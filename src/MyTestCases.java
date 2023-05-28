@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Maginto_project extends Parameters {
+public class MyTestCases extends Parameters {
 	
 	@BeforeTest
 	public void preTest() throws InterruptedException {
