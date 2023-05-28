@@ -15,7 +15,7 @@ public class Parameters {
 	String CheckoutPage = "https://magento.softwaretestingboard.com/checkout/#shipping";
 	String SignOut = "https://magento.softwaretestingboard.com/customer/account/logout/";
 
-	// SignUp
+	// SignUp & SignIn
 	String[] firstNameList = { "Dina", "Hamza", "Rania", "Diala", "yazeed" };
 	String[] lastNameList = { "Ali", "yazan", "yazeed", "Ahmad", "Faisal" };
 	int RandomIndex = rand.nextInt(0, 5);
