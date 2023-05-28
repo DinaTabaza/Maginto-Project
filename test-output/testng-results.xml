@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-05-21T11:29:13 EET" name="Default suite" finished-at="2023-05-21T11:30:49 EET" duration-ms="96241">
+    <groups>
+    </groups>
+    <test started-at="2023-05-21T11:29:13 EET" name="Default test" finished-at="2023-05-21T11:30:49 EET" duration-ms="96241">
+      <class name="Reorder_Five_Times">
+        <test-method is-config="true" signature="preTest()[pri:0, instance:Reorder_Five_Times@7fae4d4a]" started-at="2023-05-21T11:29:13 EET" name="preTest" finished-at="2023-05-21T11:29:16 EET" duration-ms="2786" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preTest -->
+        <test-method signature="Reorder_five_Times()[pri:8, instance:Reorder_Five_Times@7fae4d4a]" started-at="2023-05-21T11:29:16 EET" name="Reorder_five_Times" description="Test number 8" finished-at="2023-05-21T11:30:49 EET" duration-ms="92917" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Reorder_five_Times -->
+        <test-method signature="Check_The_Last_five_OrderPrice()[pri:9, instance:Reorder_Five_Times@7fae4d4a]" started-at="2023-05-21T11:30:49 EET" name="Check_The_Last_five_OrderPrice" description="Test number 9" finished-at="2023-05-21T11:30:49 EET" duration-ms="448" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Check_The_Last_five_OrderPrice -->
+      </class> <!-- Reorder_Five_Times -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
