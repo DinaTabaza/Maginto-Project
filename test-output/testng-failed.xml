@@ -5,9 +5,8 @@
     <classes>
       <class name="MyTestCases">
         <methods>
-          <include name="Add_Five_Items_ToCart"/>
+          <include name="Checkout_Process"/>
           <include name="preTest"/>
-          <include name="Success_Signup"/>
         </methods>
       </class> <!-- MyTestCases -->
     </classes>

@@ -19,28 +19,21 @@ public class Parameters {
 	String[] firstNameList = { "Dina", "Hamza", "Rania", "Diala", "yazeed" };
 	String[] lastNameList = { "Ali", "yazan", "yazeed", "Ahmad", "Faisal" };
 	int RandomIndex = rand.nextInt(0, 5);
-	
+
 	String EmailUser = "user";
-	int RandomIndexForEmail =rand.nextInt(0, 300);
+	int RandomIndexForEmail = rand.nextInt(0, 300);
 	String EmailComplete = "@yahoo.com";
-	String TheEmailToLogin ;
+	String TheEmailToLogin;
 
 	String Mutualpassword = "0795646019Dd";
-	
-	
+
 	// Add_Items
-		String URL_Items[] = { "https://magento.softwaretestingboard.com/radiant-tee.html",
-				"https://magento.softwaretestingboard.com/breathe-easy-tank.html",
-				"https://magento.softwaretestingboard.com/argus-all-weather-tank.html",
-				"https://magento.softwaretestingboard.com/hero-hoodie.html" };
-
-
-	// Checkout info
-	String CompanyName = "Amazon";
-	String streeAddress = "wasfi-Altal street";
-	String City = "Amman";
-	String PostalCode = "12345";
-	String PhoneNumber = "0795646019";
+	String URL_Items[] = { "https://magento.softwaretestingboard.com/radiant-tee.html",
+			"https://magento.softwaretestingboard.com/breathe-easy-tank.html",
+			"https://magento.softwaretestingboard.com/argus-all-weather-tank.html",
+			"https://magento.softwaretestingboard.com/hero-hoodie.html",
+			"https://magento.softwaretestingboard.com/fusion-backpack.html" };
 
 	
+
 }
