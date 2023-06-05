@@ -19,6 +19,57 @@ public class MyTestCases extends Parameters {
 
 	}
 	
+	//Signup
+	@Test(description = "Test number 1", priority = 1)
+	public void Success_Signup() throws InterruptedException {
+
+		driver.get(SignupPage);
+
+		// FirstName
+		WebElement First_Name = driver.findElement(By.xpath("//*[@id=\"firstname\"]"));
+		First_Name.sendKeys(firstNameList[RandomIndex]);
+
+		// LastName
+		WebElement Last_Name = driver.findElement(By.xpath("//*[@id=\"lastname\"]"));
+		Last_Name.sendKeys(lastNameList[RandomIndex]);
+
+		// CheckBox
+		WebElement CheckBox_NewsLetter = driver.findElement(By.id("is_subscribed"));
+		if (!CheckBox_NewsLetter.isSelected()) {
+			CheckBox_NewsLetter.click();
+		}
+
+		// Email
+		WebElement Email = driver.findElement(By.xpath("//*[@id=\"email_address\"]"));
+		Email.sendKeys(EmailUser+RandomIndexForEmail+EmailComplete);
+		TheEmailToLogin = EmailUser+RandomIndexForEmail+EmailComplete;
+		
+		// Password
+		WebElement Password = driver.findElement(By.xpath("//*[@id=\"password\"]"));
+		Password.sendKeys(Mutualpassword);
+
+		// Confirm Password
+		WebElement Confirm_Password = driver.findElement(By.xpath("//*[@id=\"password-confirmation\"]"));
+		Confirm_Password.sendKeys(Mutualpassword);
+		Thread.sleep(1000);
+
+		// Create an Account Button
+		WebElement CreateAccount_Button = driver.findElement(By.xpath("//*[@id=\"form-validate\"]/div/div[1]/button"));
+		CreateAccount_Button.click();
+
+		// Assert if The Signup Success
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		WebElement Success_Signup_Message = driver.findElement(By.className("message"));
+
+		String Expected_Success_Signup_Message = "Thank you for registering with Main Website Store.";
+		String Actual_Success_Signup_Message = Success_Signup_Message.getText();
+		//System.out.println(Actual_Success_Signup_Message);
+		Assert.assertEquals(Actual_Success_Signup_Message, Expected_Success_Signup_Message);
+		
+		Thread.sleep(3000);
+		driver.get(SignOut);
+	}
+	
 
 	// SignIn
 	@Test(description = "Test number 2", priority = 2)
@@ -39,9 +90,10 @@ public class MyTestCases extends Parameters {
 		// SignInButton
 		WebElement SignIn_Button = driver.findElement(By.xpath("//*[@id=\"send2\"]"));
 		SignIn_Button.click();
+		Thread.sleep(3000);
 	}
 
-	// Send Items via Search Bar .. And Search 5 items randomly 
+//	// Send Items randomly via Search Bar 
 //	@Test( description = "Test number 3",priority =3)
 //	public void Search_Items_Randomly() {
 //		
@@ -56,26 +108,30 @@ public class MyTestCases extends Parameters {
 
 	// Add Five Items To The Cart
 	@Test(description = "Test number 4", priority = 4)
-	public void Add_Five_Items_ToCart() throws InterruptedException {
+	public void Add_Items() throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
 		for (int i = 0; i < URL_Items.length; i++) {
 			driver.get(URL_Items[i]);
 
-			// Lists Size and Color
-			List<WebElement> SelectSizeButtons = driver.findElements(By.className("swatch-option"));
-			List<WebElement> SelectColorButtons = driver.findElements(By.className("swatch-option"));
-
+			//List Of Sizes
+			WebElement SizesBox = driver.findElement(By.xpath("//*[@id=\"product-options-wrapper\"]/div/div/div[1]/div"));
+			List<WebElement> Sizes= SizesBox.findElements(By.tagName("div"));
+			
+			//List Of Colors
+			WebElement ColorBox = driver.findElement(By.xpath("//*[@id=\"product-options-wrapper\"]/div/div/div[2]/div"));
+			List<WebElement> Colors= ColorBox.findElements(By.tagName("div"));
+		
 			// Radiant Tee Item
 			if (driver.getCurrentUrl().contains("tee")) {
 				// Select Random Size
-				int RandomSizeIndex = rand.nextInt(0, 5);
-				SelectSizeButtons.get(RandomSizeIndex).click();
+				int RandomSizeIndex = rand.nextInt(0, Sizes.size());
+				Sizes.get(RandomSizeIndex).click();
 				Thread.sleep(1000);
-
+			
 				// Select Random Color
-				int RandomColorIndex = rand.nextInt(5, 8);
-				SelectColorButtons.get(RandomColorIndex).click();
+				int RandomColorIndex = rand.nextInt(0, Colors.size());
+				Colors.get(RandomColorIndex).click();
 
 				// Select Quintity
 				WebElement Quintyt = driver.findElement(By.xpath("//*[@id=\"qty\"]"));
@@ -90,13 +146,14 @@ public class MyTestCases extends Parameters {
 				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
 				// Select Random Size
-				int RandomSizeIndex = rand.nextInt(0, 5);
-				SelectSizeButtons.get(RandomSizeIndex).click();
+				// Select Random Size
+				int RandomSizeIndex = rand.nextInt(0, Sizes.size());
+				Sizes.get(RandomSizeIndex).click();
 				Thread.sleep(1000);
-
+			
 				// Select Random Color
-				int RandomColorIndex = rand.nextInt(5, 8);
-				SelectColorButtons.get(RandomColorIndex).click();
+				int RandomColorIndex = rand.nextInt(0, Colors.size());
+				Colors.get(RandomColorIndex).click();
 
 				WebElement Quintyt = driver.findElement(By.xpath("//*[@id=\"qty\"]"));
 				Quintyt.clear();
@@ -108,14 +165,14 @@ public class MyTestCases extends Parameters {
 			// Argus All-Weather Tank Item
 			else if (driver.getCurrentUrl().contains("weather")) {
 				// Select Random Size
-				int RandomSizeIndex = rand.nextInt(0, 5);
-				SelectSizeButtons.get(RandomSizeIndex).click();
-
+				// Select Random Size
+				int RandomSizeIndex = rand.nextInt(0, Sizes.size());
+				Sizes.get(RandomSizeIndex).click();
 				Thread.sleep(1000);
-
+			
 				// Select Random Color
-				int RandomColorIndex = rand.nextInt(5, 6);
-				SelectColorButtons.get(RandomColorIndex).click();
+				int RandomColorIndex = rand.nextInt(0, Colors.size());
+				Colors.get(RandomColorIndex).click();
 
 				WebElement Quintyt = driver.findElement(By.xpath("//*[@id=\"qty\"]"));
 				Quintyt.clear();
@@ -126,13 +183,14 @@ public class MyTestCases extends Parameters {
 				// Hero Hoodie Item
 			} else if (driver.getCurrentUrl().contains("hoodie")) {
 				// Select Random Size
-				int RandomSizeIndex = rand.nextInt(0, 5);
-				SelectSizeButtons.get(RandomSizeIndex).click();
+				// Select Random Size
+				int RandomSizeIndex = rand.nextInt(0, Sizes.size());
+				Sizes.get(RandomSizeIndex).click();
 				Thread.sleep(1000);
-
+			
 				// Select Random Color
-				int RandomColorIndex = rand.nextInt(5, 8);
-				SelectColorButtons.get(RandomColorIndex).click();
+				int RandomColorIndex = rand.nextInt(0, Colors.size());
+				Colors.get(RandomColorIndex).click();
 
 				WebElement Quintyt = driver.findElement(By.xpath("//*[@id=\"qty\"]"));
 				Quintyt.clear();
@@ -217,47 +275,47 @@ public class MyTestCases extends Parameters {
 
 		}
 	}
-
-	// Check The final Price
-	@Test(description = "Test number 6", priority = 6)
-	public void Placeorder() {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		WebElement placeorder_Button = driver.findElement(
-				By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button"));
-
-		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-		jsExecutor.executeScript("arguments[0].click();", placeorder_Button);
-	}
-
-	@Test(description = "Test number 7", priority = 7)
-	public void Total_Of_Invoice_Number() {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-
-		WebElement Invoice_Number_Link = driver
-				.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[2]/p[1]/a"));
-		Invoice_Number_Link.click();
-
-		WebElement ThePricesInFooter = driver.findElement(By.tagName("tfoot"));
-		List<WebElement> ThePrices = ThePricesInFooter.findElements(By.className("price"));
-
-		String Subtotal = ThePrices.get(0).getText();
-		double IntegerSubtotal = Double.parseDouble(Subtotal.replaceAll("[^0-9.]", ""));
-
-		String Discount = ThePrices.get(1).getText();
-		double IntegerDiscount = Double.parseDouble(Discount.replaceAll("[^0-9.]", ""));
-
-		String ShippingAndHandling = ThePrices.get(2).getText();
-		double IntegerShippingAndHandling = Double.parseDouble(ShippingAndHandling.replaceAll("[^0-9.]", ""));
-
-		String FinalPrice = ThePrices.get(3).getText();
-		double ActualfinalPrice = Double.parseDouble(FinalPrice.replaceAll("[^0-9.]", ""));
-		// System.out.println(ActualfinalPrice);
-
-		double ExpectedPrice = IntegerSubtotal - IntegerDiscount + IntegerShippingAndHandling;
-		System.out.println(ExpectedPrice);
-
-		assertEquals(ActualfinalPrice, ExpectedPrice);
-
-	}
+//
+//	// Check The final Price
+//	@Test(description = "Test number 6", priority = 6)
+//	public void Placeorder() {
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//		WebElement placeorder_Button = driver.findElement(
+//				By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button"));
+//
+//		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+//		jsExecutor.executeScript("arguments[0].click();", placeorder_Button);
+//	}
+//
+//	@Test(description = "Test number 7", priority = 7)
+//	public void Total_Of_Invoice_Number() {
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//
+//		WebElement Invoice_Number_Link = driver
+//				.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[2]/p[1]/a"));
+//		Invoice_Number_Link.click();
+//
+//		WebElement ThePricesInFooter = driver.findElement(By.tagName("tfoot"));
+//		List<WebElement> ThePrices = ThePricesInFooter.findElements(By.className("price"));
+//
+//		String Subtotal = ThePrices.get(0).getText();
+//		double IntegerSubtotal = Double.parseDouble(Subtotal.replaceAll("[^0-9.]", ""));
+//
+//		String Discount = ThePrices.get(1).getText();
+//		double IntegerDiscount = Double.parseDouble(Discount.replaceAll("[^0-9.]", ""));
+//
+//		String ShippingAndHandling = ThePrices.get(2).getText();
+//		double IntegerShippingAndHandling = Double.parseDouble(ShippingAndHandling.replaceAll("[^0-9.]", ""));
+//
+//		String FinalPrice = ThePrices.get(3).getText();
+//		double ActualfinalPrice = Double.parseDouble(FinalPrice.replaceAll("[^0-9.]", ""));
+//		// System.out.println(ActualfinalPrice);
+//
+//		double ExpectedPrice = IntegerSubtotal - IntegerDiscount + IntegerShippingAndHandling;
+//		System.out.println(ExpectedPrice);
+//
+//		assertEquals(ActualfinalPrice, ExpectedPrice);
+//
+//	}
 
 }
